@@ -29,11 +29,15 @@ export default function Main() {
         >
           <Navbar />
           <Flex direction="column">
-            <Flex w="full" direction="column" justify="center" align="center">
-              <Heading as={"h2"} mb="1em">
-                Mais populares 🚀
-              </Heading>
-              <Center gap="12px">
+            <Flex
+              w="full"
+              direction="column"
+              justify="center"
+              align="center"
+              gap="32px"
+            >
+              <Heading as={"h2"}>Mais populares 🚀</Heading>
+              <Center gap="24px" minH="480px">
                 {quizzes.data.map((q) => (
                   <QuizCard quiz={q} />
                 ))}

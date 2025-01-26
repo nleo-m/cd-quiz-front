@@ -4,6 +4,7 @@ import {
   Card,
   CardBody,
   CardFooter,
+  Center,
   Divider,
   Flex,
   Heading,
@@ -15,7 +16,19 @@ import {
 
 export default function QuizCard({ quiz }) {
   return (
-    <Card maxW="sm">
+    <Card
+      maxW="sm"
+      transition=".25s ease"
+      cursor="pointer"
+      border="none"
+      borderColor="main.600 !important"
+      _hover={{
+        transform: "scale(1.025)",
+        borderTop: "2px solid",
+        borderBottom: "2px solid",
+        boxShadow: "0 10px 24px 8px #00000050",
+      }}
+    >
       <CardBody>
         <Box
           position="relative"
@@ -34,13 +47,26 @@ export default function QuizCard({ quiz }) {
           />
         </Box>
         <Stack mt="6" spacing="3">
-          <Heading size="md">{quiz?.name}</Heading>
-          <Text>{quiz?.description}</Text>
+          <Heading size="md" color="text.700">
+            {quiz?.name}
+          </Heading>
+          <Text overflow="hidden" whiteSpace="nowrap" textOverflow="ellipsis">
+            {quiz?.description}
+          </Text>
         </Stack>
       </CardBody>
-      <Divider />
+
+      <Center>
+        <Divider maxW="50%" />
+      </Center>
+
       <CardFooter justify="end">
-        <Button variant="solid" colorScheme="blue">
+        <Button
+          variant="solid"
+          bg="main.500"
+          color="white"
+          _hover={{ bg: "main.400" }}
+        >
           Responder agora
         </Button>
       </CardFooter>
