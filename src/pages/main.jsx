@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getQuizzes } from "../store/quizzesSlice";
 import Loading from "../components/Loading";
 import QuizCard from "../components/QuizCard";
-import { Flex } from "@chakra-ui/react";
+import { Center, Flex, Heading } from "@chakra-ui/react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Main() {
   const dispatch = useDispatch();
@@ -19,10 +21,26 @@ export default function Main() {
     <>
       {(fakeLoading || quizzes?.status == "loading") && <Loading />}
       {!fakeLoading && quizzes?.status == "succeeded" && (
-        <Flex gap="12px">
-          {quizzes.data.map((q) => (
-            <QuizCard quiz={q} />
-          ))}
+        <Flex
+          direction="column"
+          bg="gray.100"
+          justify="space-between"
+          h="100vh"
+        >
+          <Navbar />
+          <Flex direction="column">
+            <Flex w="full" direction="column" justify="center" align="center">
+              <Heading as={"h2"} mb="1em">
+                Mais populares 🚀
+              </Heading>
+              <Center gap="12px">
+                {quizzes.data.map((q) => (
+                  <QuizCard quiz={q} />
+                ))}
+              </Center>
+            </Flex>
+          </Flex>
+          <Footer />
         </Flex>
       )}
     </>
