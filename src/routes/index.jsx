@@ -1,9 +1,10 @@
+import ErrorBoundary from "../pages/Error/ErrorBoundary";
 import Main from "../pages/main";
 
 const routes = [
   {
     path: "/",
-    // errorElement: <Error />,
+    errorElement: <ErrorBoundary />,
     children: [{ path: "/", element: <Main /> }],
   },
 ];
