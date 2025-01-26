@@ -1,6 +1,7 @@
 import ErrorBoundary from "../pages/Error/ErrorBoundary";
 import Main from "../pages/main";
 import Quiz from "../pages/Quiz";
+import Score from "../pages/Score";
 
 const routes = [
   {
@@ -9,7 +10,7 @@ const routes = [
     children: [
       { path: "/", element: <Main /> },
       { path: "/:id", element: <Quiz /> },
-      { path: "/score", element: <div>Teste score</div> },
+      { path: "/score", element: <Score /> },
     ],
   },
 ];

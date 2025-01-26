@@ -21,7 +21,11 @@ const theme = extendTheme({
   },
 
   styles: {
-    //
+    global: {
+      body: {
+        bg: "gray.100",
+      },
+    },
   },
 });
 
