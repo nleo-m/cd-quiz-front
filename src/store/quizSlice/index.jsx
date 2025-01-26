@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getQuizzesService } from "../../services/quiz/getQuizzesService";
+import { getQuizByIdService } from "../../services/quiz/getQuizByIdService";
 import { verifyQuizService } from "../../services/quiz/verifyQuizService";
 
 const initialState = {
@@ -12,7 +12,7 @@ export const getQuizById = createAsyncThunk(
   "quiz/id",
   async (id, { rejectWithValue }) => {
     try {
-      const { data } = await getQuizzesService(id);
+      const { data } = await getQuizByIdService(id);
 
       return data;
     } catch (err) {
@@ -23,7 +23,7 @@ export const getQuizById = createAsyncThunk(
 
 export const verifyQuiz = createAsyncThunk(
   "quiz/verify",
-  async (id, payload, { rejectWithValue }) => {
+  async ({ id, payload }, { rejectWithValue }) => {
     try {
       const { data } = await verifyQuizService(id, payload);
 
