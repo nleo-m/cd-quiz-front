@@ -71,15 +71,18 @@ export default function Main() {
       {(fakeLoading || quizzes?.status === "loading") && <Loading />}
       {!fakeLoading && quizzes?.status === "succeeded" && (
         <DefaultLayout>
-
           <Flex direction="column" w="80%">
-            <Heading as={"h2"} alignSelf="start">Mais populares 🚀</Heading>
+            <Heading as={"h2"} alignSelf="start">
+              Mais populares 🚀
+            </Heading>
             <Slider className="carousel" {...settings}>
               {quizzes.data.map((q) => (
                 <QuizCard quiz={q} />
               ))}
             </Slider>
           </Flex>
+
+          {/* Pode adicionar outros carrosséis, dividir por categorias, etc */}
         </DefaultLayout>
       )}
       {!fakeLoading && quizzes?.status === "failed" && <Error />}

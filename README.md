@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Codi quiz
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Teste seus conhecimentos respondendo quizzes relacionados à tecnologia da informação e programação.
 
-## Available Scripts
+<div align="center">
+  <img src="/public/assets/imgs/preview.png" width="100%" />
+</div>
 
-In the project directory, you can run:
+## Para rodar o projeto localmente
 
-### `npm start`
+1.  Instale as dependências utilizando seu gerenciador de pacotes favoritos:  
+    `npm install`  
+    ou  
+    `yarn install` (a partir daqui vou usar como exemplo o yarn)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2.  Defina as variáveis de ambiente:  
+     Copie o arquivo de exemplo.  
+     `cp .env.example .env`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    Ajuste a URL da API, caso necessário  
+    `REACT_APP_API_URL="http://localhost:4000"`
 
-### `npm test`
+3.  Rode a aplicação  
+    `yarn start`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tecnologias e bibliotecas utilizadas
 
-### `npm run build`
+Bootstrapped com [Create React App](https://github.com/facebook/create-react-app).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+React@^18.0.0: framework utilizado no desenvolvimento;  
+chakra-ui@ ^2.8.2: biblioteca de estilização;  
+framer-motion@^11.18.0, emotion@^11.14.0: animações;  
+react-redux@^8.0.4 reduxjs/toolkit@^1.8.5: gerenciamento de estado;  
+react-hook-form@^7.54.2: formulários e validação;  
+axios@^1.7.9: cliente HTTP utilizado para requisições das services;  
+react-router@^7.1.2: roteamento;  
+slick-carousel@^1.8.1 e react-slick@^0.30.2: carrossel.
