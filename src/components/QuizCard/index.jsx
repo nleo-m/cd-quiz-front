@@ -47,7 +47,7 @@ export default function QuizCard({ quiz }) {
           />
         </Box>
         <Stack mt="6" spacing="3">
-          <Heading size="md" color="text.700">
+          <Heading size="md" color="text.700" fontSize={{ base: 18, md: 20 }}>
             {quiz?.name}
           </Heading>
           <Text overflow="hidden" whiteSpace="nowrap" textOverflow="ellipsis">
@@ -68,7 +68,7 @@ export default function QuizCard({ quiz }) {
             color="white"
             _hover={{ bg: "main.400" }}
           >
-            Responder agora
+            Responder
           </Button>
         </Link>
       </CardFooter>
