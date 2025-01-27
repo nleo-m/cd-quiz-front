@@ -36,14 +36,30 @@ export default function Main() {
     focusOnSelect: true,
     responsive: [
       {
+        breakpoint: 1600,
+        settings: {
+          centerPadding: 0,
+          slidesToShow: 2,
+        },
+      },
+      {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          centerPadding: "50px",
+          slidesToShow: 1,
         },
       },
       {
         breakpoint: 640,
         settings: {
+          centerPadding: "25px",
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 380,
+        settings: {
+          centerPadding: 0,
           slidesToShow: 1,
         },
       },
