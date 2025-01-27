@@ -10,59 +10,40 @@ import {
 import { useEffect, useState } from "react";
 import Loading from "../../components/Loading";
 import CircularProgressBar from "../../components/CircularProgressBar";
+import DefaultLayout from "../../layouts/DefaultLayout";
+import Error from "../Error/Error";
+import { useNavigate } from "react-router";
+import ScoreDisplay from "../../components/ScoreDisplay";
 
 export default function Score() {
   const quiz = useSelector((state) => state.quiz);
+  const navigate = useNavigate();
 
   const [fakeLoading, setFakeLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setFakeLoading(false), 0);
+    setTimeout(() => setFakeLoading(false), 3000);
   }, []);
-
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev < quiz?.score?.percentage) {
-          return prev + 1;
-        } else {
-          clearInterval(interval);
-          return prev;
-        }
-      });
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, [quiz]);
-
-  const getMessage = () => {
-    if (quiz?.score?.percentage < 30)
-      return "Olha pelo lado bom, você sempre pode refazer o teste! 😉";
-
-    if (quiz?.score?.percentage > 30 && quiz?.score?.percentage < 100)
-      return "Você está no caminho certo, jovem padawan! 😌";
-
-    return "Perfeito, já pode ser chamado de Jedi! 🚀";
-  };
 
   return (
     <>
       {(fakeLoading || quiz?.status == "loading") && <Loading />}
-      {!fakeLoading &&
-        quiz?.status == "succeeded" &&
-        quiz?.score?.percentage && (
-          <Flex direction="column" gap="24px">
-            <Text fontSize={24} color="text.400">
-              {getMessage()}
-            </Text>
-            <CircularProgressBar percentage={progress} />
-            <Text fontSize={24} color="text.400">
-              Você acertou {quiz?.score?.correctAnswers}/{quiz?.score?.total}
-            </Text>
-          </Flex>
-        )}
+      {!fakeLoading && !quiz?.status != "loading" && (
+        <DefaultLayout>
+          <ScoreDisplay
+            score={quiz?.score?.percentage}
+            total={quiz?.score?.total}
+            correctAnswers={quiz?.score?.correctAnswers}
+            dummy={
+              quiz?.status === "idle" ||
+              quiz?.score?.percentage == undefined ||
+              quiz?.score?.percentage == null
+            }
+          />
+        </DefaultLayout>
+      )}
+
+      {!fakeLoading && quiz?.status == "failed" && <Error />}
     </>
   );
 }

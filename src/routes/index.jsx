@@ -1,5 +1,5 @@
 import ErrorBoundary from "../pages/Error/ErrorBoundary";
-import Main from "../pages/main";
+import Main from "../pages";
 import Quiz from "../pages/Quiz";
 import Score from "../pages/Score";
 

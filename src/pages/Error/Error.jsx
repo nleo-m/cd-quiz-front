@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 export default function Error({
   statusCode = 500,
-  message = "Erro!",
+  message = "Vixe, ocorreu um erro desconhecido!",
   redirectTo = "/",
 }) {
   const navigate = useNavigate();
@@ -24,18 +24,20 @@ export default function Error({
           {message}
         </Text>
         {statusCode.toString().startsWith("40") && (
-          <Text mt="32px" mb=".25em" fontSize="18px">
-            Redirecionando para o app...
-          </Text>
+          <>
+            <Text mt="32px" mb=".25em" fontSize="18px">
+              Redirecionando para o app...
+            </Text>
+            <Link
+              href={redirectTo}
+              color="gray.600"
+              transition=".25s ease"
+              _hover={{ color: "gray.700" }}
+            >
+              Clique aqui para ir imediatamente
+            </Link>
+          </>
         )}
-        <Link
-          href={redirectTo}
-          color="gray.600"
-          transition=".25s ease"
-          _hover={{ color: "gray.700" }}
-        >
-          Clique aqui para ir imediatamente
-        </Link>
       </Flex>
     </Center>
   );

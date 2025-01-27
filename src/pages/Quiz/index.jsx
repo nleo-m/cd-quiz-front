@@ -14,6 +14,8 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { Controller, useForm } from "react-hook-form";
+import DefaultLayout from "../../layouts/DefaultLayout";
+import Error from "../Error/Error";
 
 export default function Quiz() {
   const quiz = useSelector((state) => state.quiz);
@@ -24,7 +26,7 @@ export default function Quiz() {
   const [fakeLoading, setFakeLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setFakeLoading(false), 0);
+    setTimeout(() => setFakeLoading(false), 2000);
 
     dispatch(getQuizById(id));
   }, []);
@@ -51,8 +53,7 @@ export default function Quiz() {
     <>
       {(fakeLoading || quiz?.status == "loading") && <Loading />}
       {!fakeLoading && quiz?.status == "succeeded" && (
-        <>
-          {/* <div>{JSON.stringify(quiz)}</div> */}
+        <DefaultLayout>
           <Heading as={"h2"} color="main.500" mb="24px">
             {quiz?.data?.name}
           </Heading>
@@ -96,6 +97,8 @@ export default function Quiz() {
 
             <Button
               type="submit"
+              marginY="32px"
+              w="full"
               variant="solid"
               bg="main.500"
               color="white"
@@ -104,8 +107,9 @@ export default function Quiz() {
               Enviar
             </Button>
           </form>
-        </>
+        </DefaultLayout>
       )}
+      {!fakeLoading && quiz?.status == "failed" && <Error />}
     </>
   );
 }
