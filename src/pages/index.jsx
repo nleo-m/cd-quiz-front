@@ -71,9 +71,9 @@ export default function Main() {
       {(fakeLoading || quizzes?.status === "loading") && <Loading />}
       {!fakeLoading && quizzes?.status === "succeeded" && (
         <DefaultLayout>
-          <Heading as={"h2"}>Mais populares 🚀</Heading>
 
           <Flex direction="column" w="80%">
+            <Heading as={"h2"} alignSelf="start">Mais populares 🚀</Heading>
             <Slider className="carousel" {...settings}>
               {quizzes.data.map((q) => (
                 <QuizCard quiz={q} />

@@ -1,6 +1,6 @@
 import { Box, Center, Flex, Spinner, Text } from "@chakra-ui/react";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 import { motion } from "framer-motion";
 
