@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { Controller, useForm } from "react-hook-form";
 import DefaultLayout from "../../layouts/DefaultLayout";
+import Error from "../Error/Error";
 
 export default function Quiz() {
   const quiz = useSelector((state) => state.quiz);
@@ -106,6 +107,7 @@ export default function Quiz() {
           </form>
         </DefaultLayout>
       )}
+      {!fakeLoading && quiz?.status == "failed" && <Error />}
     </>
   );
 }

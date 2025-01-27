@@ -5,6 +5,7 @@ import Loading from "../components/Loading";
 import QuizCard from "../components/QuizCard";
 import { Center, Flex, Heading, Link } from "@chakra-ui/react";
 import DefaultLayout from "../layouts/DefaultLayout";
+import Error from "./Error/Error";
 
 export default function Main() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ export default function Main() {
           </Center>
         </DefaultLayout>
       )}
+      {!fakeLoading && quizzes?.status == "failed" && <Error />}
     </>
   );
 }
