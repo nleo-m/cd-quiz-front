@@ -1,10 +1,17 @@
-import Main from "../pages/main";
+import ErrorBoundary from "../pages/Error/ErrorBoundary";
+import Main from "../pages";
+import Quiz from "../pages/Quiz";
+import Score from "../pages/Score";
 
 const routes = [
   {
     path: "/",
-    // errorElement: <Error />,
-    children: [{ path: "/", element: <Main /> }],
+    errorElement: <ErrorBoundary />,
+    children: [
+      { path: "/", element: <Main /> },
+      { path: "/:id", element: <Quiz /> },
+      { path: "/score", element: <Score /> },
+    ],
   },
 ];
 
