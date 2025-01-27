@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getQuizzes } from "../store/quizzesSlice";
 import Loading from "../components/Loading";
 import QuizCard from "../components/QuizCard";
-import { Center, Flex, Heading } from "@chakra-ui/react";
+import { Center, Flex, Heading, Link } from "@chakra-ui/react";
 import DefaultLayout from "../layouts/DefaultLayout";
 
 export default function Main() {
@@ -12,7 +12,7 @@ export default function Main() {
   const [fakeLoading, setFakeLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setFakeLoading(false), 2000);
+    setTimeout(() => setFakeLoading(false), 1000);
     dispatch(getQuizzes());
   }, []);
 
@@ -24,7 +24,9 @@ export default function Main() {
           <Heading as={"h2"}>Mais populares 🚀</Heading>
           <Center gap="24px" minH="480px">
             {quizzes.data.map((q) => (
-              <QuizCard quiz={q} />
+              <Link href={q?.id}>
+                <QuizCard quiz={q} />
+              </Link>
             ))}
           </Center>
         </DefaultLayout>

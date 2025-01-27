@@ -18,7 +18,7 @@ export default function Score() {
   const [fakeLoading, setFakeLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setFakeLoading(false), 0);
+    setTimeout(() => setFakeLoading(false), 3000);
   }, []);
 
   const [progress, setProgress] = useState(0);

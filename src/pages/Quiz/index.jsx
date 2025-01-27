@@ -25,7 +25,7 @@ export default function Quiz() {
   const [fakeLoading, setFakeLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setFakeLoading(false), 0);
+    setTimeout(() => setFakeLoading(false), 2000);
 
     dispatch(getQuizById(id));
   }, []);
