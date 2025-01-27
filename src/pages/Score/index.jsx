@@ -10,6 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import Loading from "../../components/Loading";
 import CircularProgressBar from "../../components/CircularProgressBar";
+import DefaultLayout from "../../layouts/DefaultLayout";
 
 export default function Score() {
   const quiz = useSelector((state) => state.quiz);
@@ -53,15 +54,17 @@ export default function Score() {
       {!fakeLoading &&
         quiz?.status == "succeeded" &&
         quiz?.score?.percentage && (
-          <Flex direction="column" gap="24px">
-            <Text fontSize={24} color="text.400">
-              {getMessage()}
-            </Text>
-            <CircularProgressBar percentage={progress} />
-            <Text fontSize={24} color="text.400">
-              Você acertou {quiz?.score?.correctAnswers}/{quiz?.score?.total}
-            </Text>
-          </Flex>
+          <DefaultLayout>
+            <Flex direction="column" gap="24px">
+              <Text fontSize={24} color="text.400">
+                {getMessage()}
+              </Text>
+              <CircularProgressBar percentage={progress} />
+              <Text fontSize={24} color="text.400">
+                Você acertou {quiz?.score?.correctAnswers}/{quiz?.score?.total}
+              </Text>
+            </Flex>
+          </DefaultLayout>
         )}
     </>
   );

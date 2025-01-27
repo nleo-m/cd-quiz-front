@@ -14,6 +14,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { Controller, useForm } from "react-hook-form";
+import DefaultLayout from "../../layouts/DefaultLayout";
 
 export default function Quiz() {
   const quiz = useSelector((state) => state.quiz);
@@ -51,8 +52,7 @@ export default function Quiz() {
     <>
       {(fakeLoading || quiz?.status == "loading") && <Loading />}
       {!fakeLoading && quiz?.status == "succeeded" && (
-        <>
-          {/* <div>{JSON.stringify(quiz)}</div> */}
+        <DefaultLayout>
           <Heading as={"h2"} color="main.500" mb="24px">
             {quiz?.data?.name}
           </Heading>
@@ -104,7 +104,7 @@ export default function Quiz() {
               Enviar
             </Button>
           </form>
-        </>
+        </DefaultLayout>
       )}
     </>
   );

@@ -4,8 +4,7 @@ import { getQuizzes } from "../store/quizzesSlice";
 import Loading from "../components/Loading";
 import QuizCard from "../components/QuizCard";
 import { Center, Flex, Heading } from "@chakra-ui/react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import DefaultLayout from "../layouts/DefaultLayout";
 
 export default function Main() {
   const dispatch = useDispatch();
@@ -21,31 +20,14 @@ export default function Main() {
     <>
       {(fakeLoading || quizzes?.status == "loading") && <Loading />}
       {!fakeLoading && quizzes?.status == "succeeded" && (
-        <Flex
-          direction="column"
-          bg="gray.100"
-          justify="space-between"
-          h="100vh"
-        >
-          <Navbar />
-          <Flex direction="column">
-            <Flex
-              w="full"
-              direction="column"
-              justify="center"
-              align="center"
-              gap="32px"
-            >
-              <Heading as={"h2"}>Mais populares 🚀</Heading>
-              <Center gap="24px" minH="480px">
-                {quizzes.data.map((q) => (
-                  <QuizCard quiz={q} />
-                ))}
-              </Center>
-            </Flex>
-          </Flex>
-          <Footer />
-        </Flex>
+        <DefaultLayout>
+          <Heading as={"h2"}>Mais populares 🚀</Heading>
+          <Center gap="24px" minH="480px">
+            {quizzes.data.map((q) => (
+              <QuizCard quiz={q} />
+            ))}
+          </Center>
+        </DefaultLayout>
       )}
     </>
   );
