@@ -8,6 +8,7 @@ import {
   Divider,
   Heading,
   Image,
+  Link,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -46,7 +47,7 @@ export default function QuizCard({ quiz }) {
           />
         </Box>
         <Stack mt="6" spacing="3">
-          <Heading size="md" color="text.700">
+          <Heading size="md" color="text.700" fontSize={{ base: 18, md: 20 }}>
             {quiz?.name}
           </Heading>
           <Text overflow="hidden" whiteSpace="nowrap" textOverflow="ellipsis">
@@ -60,14 +61,16 @@ export default function QuizCard({ quiz }) {
       </Center>
 
       <CardFooter justify="end">
-        <Button
-          variant="solid"
-          bg="main.500"
-          color="white"
-          _hover={{ bg: "main.400" }}
-        >
-          Responder agora
-        </Button>
+        <Link href={quiz?.id}>
+          <Button
+            variant="solid"
+            bg="main.500"
+            color="white"
+            _hover={{ bg: "main.400" }}
+          >
+            Responder
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );

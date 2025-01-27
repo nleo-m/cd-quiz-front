@@ -46,12 +46,13 @@ export default function ScoreDisplay({
       bg="white"
       padding="64px"
       borderRadius="12px"
+      textAlign="center"
     >
       <CircularProgressBar percentage={progress} />
-      <Text fontSize={24} color="text.400" mt="32px">
+      <Text fontSize={{ base: 22, md: 24 }} color="text.400" mt="32px">
         {dummy ? "Volte aqui depois de responder algum quiz :)" : getMessage()}
       </Text>
-      <Text fontSize={24} color="text.400">
+      <Text fontSize={{ base: 20, md: 24 }} color="text.400">
         Você acertou {correctAnswers}/{total}
       </Text>
     </Flex>
