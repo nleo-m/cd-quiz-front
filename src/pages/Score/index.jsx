@@ -34,7 +34,11 @@ export default function Score() {
             score={quiz?.score?.percentage}
             total={quiz?.score?.total}
             correctAnswers={quiz?.score?.correctAnswers}
-            dummy={quiz?.status === "idle" || !quiz?.score?.percentage}
+            dummy={
+              quiz?.status === "idle" ||
+              quiz?.score?.percentage == undefined ||
+              quiz?.score?.percentage == null
+            }
           />
         </DefaultLayout>
       )}
