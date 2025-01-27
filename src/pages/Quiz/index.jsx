@@ -97,6 +97,8 @@ export default function Quiz() {
 
             <Button
               type="submit"
+              marginY="32px"
+              w="full"
               variant="solid"
               bg="main.500"
               color="white"
