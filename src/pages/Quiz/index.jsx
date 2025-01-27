@@ -3,16 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import { getQuizById, verifyQuiz } from "../../store/quizSlice";
 import Loading from "../../components/Loading";
-import {
-  Button,
-  Flex,
-  Heading,
-  Radio,
-  RadioGroup,
-  Select,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Button, Flex, Heading, Radio, Stack, Text } from "@chakra-ui/react";
 import { Controller, useForm } from "react-hook-form";
 import DefaultLayout from "../../layouts/DefaultLayout";
 import Error from "../Error/Error";
@@ -29,13 +20,9 @@ export default function Quiz() {
     setTimeout(() => setFakeLoading(false), 2000);
 
     dispatch(getQuizById(id));
-  }, []);
+  }, [id, dispatch]);
 
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm();
+  const { handleSubmit, control } = useForm();
 
   const onSubmit = (data) => {
     const payload = [];
@@ -51,8 +38,8 @@ export default function Quiz() {
 
   return (
     <>
-      {(fakeLoading || quiz?.status == "loading") && <Loading />}
-      {!fakeLoading && quiz?.status == "succeeded" && (
+      {(fakeLoading || quiz?.status === "loading") && <Loading />}
+      {!fakeLoading && quiz?.status === "succeeded" && (
         <DefaultLayout>
           <Heading as={"h2"} color="main.500" mb="24px">
             {quiz?.data?.name}
@@ -80,7 +67,7 @@ export default function Quiz() {
                               {...field}
                               key={a?.id}
                               value={a?.id}
-                              isChecked={a?.id == field.value}
+                              isChecked={a?.id === parseInt(field.value)}
                               onChange={(value) => {
                                 field.onChange(value);
                               }}
@@ -109,7 +96,7 @@ export default function Quiz() {
           </form>
         </DefaultLayout>
       )}
-      {!fakeLoading && quiz?.status == "failed" && <Error />}
+      {!fakeLoading && quiz?.status === "failed" && <Error />}
     </>
   );
 }

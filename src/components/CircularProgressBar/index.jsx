@@ -1,4 +1,4 @@
-import { Box, Center, CircularProgress, Text } from "@chakra-ui/react";
+import { Center, CircularProgress, Text } from "@chakra-ui/react";
 
 export default function CircularProgressBar({ percentage }) {
   const getColor = () => {
