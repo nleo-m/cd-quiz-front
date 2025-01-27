@@ -6,10 +6,8 @@ import {
   CardFooter,
   Center,
   Divider,
-  Flex,
   Heading,
   Image,
-  Link,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -18,6 +16,7 @@ export default function QuizCard({ quiz }) {
   return (
     <Card
       maxW="sm"
+      minW="260px"
       transition=".25s ease"
       cursor="pointer"
       border="none"

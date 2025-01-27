@@ -1,0 +1,39 @@
+
+  .carousel .slick-list {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+    overflow-y: visible;
+  }
+  
+  .slick-track {
+    display: flex;
+  }
+  
+  .carousel .slick-slide {
+    filter: brightness(0.95);
+    opacity: 0.9;
+  }
+  
+  .carousel .slick-active {
+    opacity: 1;
+  }
+  
+  .carousel .slick-center {
+    transform: translate(0px, -12px);
+    transition: 0.3s ease;
+    filter: brightness(1);
+    opacity: 1;
+    z-index: 99;
+  }
+  
+  .carousel .slick-center .chakra-card {
+    box-shadow: 0 10px 24px 4px #00000080;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    transform: scale(1.05);
+  }
+  
+  .slick-prev:before,
+  .slick-next:before {
+      color: #AF55DD;
+  }

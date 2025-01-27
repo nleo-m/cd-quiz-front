@@ -13,7 +13,7 @@ export default function DefaultLayout({ children }) {
         justify="center"
         align="center"
         gap="32px"
-        padding="1em"
+        padding={{ base: "0.1em", sm: ".5em", md: "1em" }}
         mt="100px"
       >
         {children}
