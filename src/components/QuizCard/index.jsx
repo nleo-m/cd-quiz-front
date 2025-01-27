@@ -6,10 +6,8 @@ import {
   CardFooter,
   Center,
   Divider,
-  Flex,
   Heading,
   Image,
-  Link,
   Stack,
   Text,
 } from "@chakra-ui/react";
