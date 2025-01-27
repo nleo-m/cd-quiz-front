@@ -10,7 +10,7 @@ export default function CircularProgressBar({ percentage }) {
   };
 
   return (
-    <Box position="relative" display="inline-block">
+    <Box position="relative">
       <CircularProgress
         value={percentage}
         size="240px"

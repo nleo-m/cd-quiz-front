@@ -12,9 +12,11 @@ import Loading from "../../components/Loading";
 import CircularProgressBar from "../../components/CircularProgressBar";
 import DefaultLayout from "../../layouts/DefaultLayout";
 import Error from "../Error/Error";
+import { useNavigate } from "react-router";
 
 export default function Score() {
   const quiz = useSelector((state) => state.quiz);
+  const navigate = useNavigate();
 
   const [fakeLoading, setFakeLoading] = useState(true);
 
@@ -59,6 +61,21 @@ export default function Score() {
           <Flex direction="column" gap="24px">
             <Text fontSize={24} color="text.400">
               {getMessage()}
+            </Text>
+            <CircularProgressBar percentage={progress} />
+            <Text fontSize={24} color="text.400">
+              Você acertou {quiz?.score?.correctAnswers || 0}/
+              {quiz?.score?.total || 0}
+            </Text>
+          </Flex>
+        </DefaultLayout>
+      )}
+
+      {!fakeLoading && (quiz?.status == "idle" || !quiz?.score?.percentage) && (
+        <DefaultLayout>
+          <Flex direction="column" gap="24px">
+            <Text fontSize={24} color="text.400">
+              Volte aqui depois de responder algum quiz :&#41;
             </Text>
             <CircularProgressBar percentage={progress} />
             <Text fontSize={24} color="text.400">
